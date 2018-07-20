@@ -29,7 +29,7 @@ def main():
 
 
 def tick():
-    print('Running routine')
+    print('\nRunning Order Check')
 
     for i in range(sheet.nrows):
         #Retreive row of input - one position per row
@@ -59,12 +59,12 @@ def tick():
                 activator = 1
                 actStop = 1
                 actTgt = 0
-                print(' - ' + mkt + ' Last Price:' + "%.8f" % last + ' - STOP ORDER ACTIVATED!')
+                print(' - Last Price:' + "%.8f" % last + ' - STOP ORDER ACTIVATED!')
             elif last >= activateTarget:
                 activator = 1
                 actStop=0
                 actTgt=1
-                pprint(' - ' + mkt + ' Last Price:' + "%.8f" % last + ' - TARGET ORDER ACTIVATED!')              
+                pprint(' - Last Price:' + "%.8f" % last + ' - TARGET ORDER ACTIVATED!')              
             else:
                 activator = 0
 
