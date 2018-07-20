@@ -1,3 +1,5 @@
+Input file must remain in same directory as fulltest.py
+
 Input file must be filled out as follows:
 
 A		B		C		D
