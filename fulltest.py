@@ -16,8 +16,8 @@ sheet = wb.sheet_by_index(0)
 sheet.cell_value(0, 0)
 
 TICK_INTERVAL = 20  # seconds
-API_KEY = '85b78349c6ae4021afa1f6e6f8998f83'
-API_SECRET_KEY = b'4df4a7af2b36447ca943db741b49ed65'
+API_KEY = 'your_api_key'
+API_SECRET_KEY = b'api_secret_key'
 
 def main():
     print('Starting trader bot...')
