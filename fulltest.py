@@ -5,19 +5,15 @@ import hmac
 import xlrd
 import sys,os
 
-# Give the location of the file
 path = (os.path.dirname(os.path.realpath(__file__)))
 loc = (path + '\input.xlsx')
  
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
- 
-# For row 0 and column 0
-sheet.cell_value(0, 0)
 
 TICK_INTERVAL = 20  # seconds
-API_KEY = 'your_api_key'
-API_SECRET_KEY = b'api_secret_key'
+API_KEY = 'yoour_api_key'
+API_SECRET_KEY = b'your_api_secret_key'
 
 def main():
     print('Starting trader bot...')
@@ -44,7 +40,7 @@ def tick():
         print('\nMarket:' + mkt + ', Qty:' + str(quantity) + ', Stop:' + "%.8f" % stopPrice + ', Target:' + "%.8f" % targetPrice)
 
       
-        market_summaries = simple_reqest('https://bittrex.com/api/v1.1/public/getmarketsummary?market=BTC-' + mkt)
+        market_summaries = simple_request('https://bittrex.com/api/v1.1/public/getmarketsummary?market=BTC-' + mkt)
 
         for summary in market_summaries['result']:
             market = summary['MarketName']
@@ -136,7 +132,7 @@ def signed_request(url):
     return r.json()
 
 
-def simple_reqest(url):
+def simple_request(url):
     r = requests.get(url)
     return r.json()
 
