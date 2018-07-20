@@ -44,7 +44,6 @@ def tick():
 
         for summary in market_summaries['result']:
             market = summary['MarketName']
-            day_close = summary['PrevDay']
             last = summary['Last']
             currBid = summary['Bid']
             activator = 0
@@ -64,7 +63,7 @@ def tick():
                 activator = 1
                 actStop=0
                 actTgt=1
-                pprint(' - Last Price:' + "%.8f" % last + ' - TARGET ORDER ACTIVATED!')              
+                print(' - Last Price:' + "%.8f" % last + ' - TARGET ORDER ACTIVATED!')              
             else:
                 activator = 0
 
@@ -76,7 +75,8 @@ def tick():
                 if has_open_order(market, 'LIMIT_SELL'):
                     print('\n' + market + " already has an order in place.")
                 else:
-                    print(" - Sell stop order sent!") #res = sell_limit(market, quantity, stopPrice)
+                    print(" - Sell stop order sent!") 
+                    #res = sell_limit(market, quantity, stopPrice)
             elif actStop:
                 print('Last price is still above sell level! Last: ' "%.8f" % last + ' Stop: ' + "%.8f" % stopPrice)
 
@@ -86,7 +86,8 @@ def tick():
                 if has_open_order(market, 'LIMIT_SELL'):
                     print('\n' + market + " already has an order in place.")
                 else:
-                   print('Sell target order sent!') #res = sell_limit(market, quantity, targetPrice)
+                   print('Sell target order sent!')
+                   #res = sell_limit(market, quantity, targetPrice)
             elif actTgt:
                 print('Last price is still below target level! Last: ' "%.8f" % last + ' Target: ' + "%.8f" % targetPrice)
         else:
